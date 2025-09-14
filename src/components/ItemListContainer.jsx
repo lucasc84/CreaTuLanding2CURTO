@@ -18,7 +18,6 @@ const ItemListContainer = ({mensaje}) => {
     return(
     <div>
         <h1>{mensaje}</h1>
-        {/* {data.map (prod => <p key={prod.id}>{prod.name}</p>)} */}
         <ItemList data={data}/>
     </div>
     )

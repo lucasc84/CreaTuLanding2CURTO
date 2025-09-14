@@ -113,3 +113,18 @@ export const getProducts = () => {
     }, 2000);
   });
 }
+
+// pruebas
+
+export const getItem = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() =>{
+        if (error) {
+            reject('Error al obtener los productos')
+        } else {
+          //devuelve el 1 solo como prueba hasta que acomod rutas etc
+      resolve(productos [0])
+    }
+    }, 2000);
+  });
+}
