@@ -1,22 +1,37 @@
+// App.jsx
 import './App.css'
 import NavBarRB from './components/NavBarRB'
 import ItemListContainer from './components/ItemListContainer'
-import 'bootstrap/dist/css/bootstrap.min.css';
-// prueba ItemDetailContainer
 import ItemDetailContainer from './components/ItemDetailContainer'
-// prueba ItemDetail
-import ItemDetail from './components/ItemDetail'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
     <div className="main-bg-custom">
-      <NavBarRB/>
-      <ItemListContainer mensaje="Bienvenidos a la Tienda Online de Poseidon"/>
+      <BrowserRouter>
+        <NavBarRB />
 
-      {/* prueba ItemDetailContainer */}
-     <ItemDetailContainer mensaje="prueba ItemDetailContainer"/>
-           {/* prueba ItemDetail */}
-     <ItemDetail mensaje="prueba ItemDetail"/>
+        <Routes>
+          {/* Home: todos los productos */}
+          <Route
+            path="/"
+            element={<ItemListContainer mensaje="Bienvenidos a la Tienda Online de Poseidon" />}
+          />
+
+          {/* Categoría: lista filtrada */}
+          <Route
+            path="/categoria/:catId"
+            element={<ItemListContainer mensaje="Productos por categoría" />}
+          />
+
+          {/* Detalle por id */}
+          <Route
+            path="/item/:id"
+            element={<ItemDetailContainer mensaje="Detalle de producto" />}
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
