@@ -1,7 +1,6 @@
 import { useState, useEffect} from 'react'
 import {getItem} from '../mock/AsyncMockService'
-import ItemList from './ItemList'
-
+import ItemDetail from './ItemDetail'
 
 const ItemDetailContainer = ({mensaje}) => { 
     
@@ -9,7 +8,7 @@ const ItemDetailContainer = ({mensaje}) => {
 
 
     useEffect(() => {
-        getItem()
+        getItem(1)
         .then((res) => setItem (res))
         .catch ((error) => console.log (error))
 
