@@ -114,17 +114,12 @@ export const getProducts = () => {
   });
 }
 
-// pruebas
-
-export const getItem = () => {
+export const getItem = (id) => {
   return new Promise((resolve, reject) => {
-    setTimeout(() =>{
-        if (error) {
-            reject('Error al obtener los productos')
-        } else {
-          //devuelve el 1 solo como prueba hasta que acomod rutas etc
-      resolve(productos [0])
-    }
-    }, 2000);
-  });
+    setTimeout(() => {
+      const prod = productos.find(p => p.id === String(id))
+      if (prod) resolve(prod)
+      else reject('Producto no encontrado')
+    }, 2000)
+  })
 }
